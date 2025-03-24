@@ -4,15 +4,12 @@ function displaySongs(response){
     let musicTitleElement=document.querySelector("#music-title");
     let musicTitle=response.data.items[1].snippet.title
     musicTitleElement.innerHTML=musicTitle;
-    let videoElement=document.querySelector("#music-videos")
+    let videoElement=document.querySelector("#musicvideo-link")
     let videoID=response.data.items[1].snippet.resourceId.videoId
-     videoElement.innerHTML =
- `<iframe width="560" height="315" 
-    src= "https://www.youtube.com/embed/${videoID}"
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>`;
+    let videoUrl=`https://www.youtube.com/watch?v=${videoID}`
+    let thumbNail=response.data.items[1].snippet.thumbnails.standard.url
+    videoElement.innerHTML = 
+    `<a href=${videoUrl}> <img src="${thumbNail}"/></a>`;
 }
 
 function displayPlayList(){
