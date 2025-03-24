@@ -1,0 +1,25 @@
+body{
+     background:linear-gradient(to right, gold,pink)
+}
+.container{
+     background-image:url("https://img.freepik.com/free-vector/glowing-musical-pentagram-background-with-sound-notes_1017-31220.jpg?t=st=1742827929~exp=1742831529~hmac=34be854309021c5a352603ba554752290c7baa33ba0c1203401a0acde7f174b2&w=1800"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+     min-width: 400px;
+     max-width: 600px;
+     margin:150px auto;
+     padding: 30px;
+     color:white; 
+     font-size: 20px; 
+     align-items: justify;  
+}
+h1,h2,h3,h4{
+    font-family: Dancing Script;
+    text-align: center;
+    font-size: 35px;
+}
+.music-video{
+   min-width:400px;
+   max-width: 600px;
+   height:300px;
+}
