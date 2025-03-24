@@ -1,20 +1,23 @@
 function displaySongs(response){
-    console.log(response.data) 
+  console.log(response)
     let playList=document.querySelector("#playLists")
-    let musicTitle=response.data.items[1].snippet.title
-    let videoID=response.data.items[1].snippet.resourceId.videoId
-    let videoUrl=`https://www.youtube.com/watch?v=${videoID}`
-    let thumbNail=response.data.items[1].snippet.thumbnails.standard.url
-    playList.innerHTML = 
+    playList.innerHTML="";
+    let items=response.data.items;
+    for(let i=0; i<4; i++){
+    let musicTitle=items[i].snippet.title
+    let videoID=items[i].snippet.resourceId.videoId
+    let videoUrl=`https://www.youtube.com/watch?v=${videoID}`;
+    let thumbNail=items[i].snippet.thumbnails.standard.url
+        playList.innerHTML +=
       `<div class="playLists">
         <div class="music-title">${musicTitle}
         </div>
         <div class="musicvideo-link" id="musicvideo-link">
-          <a href="${videoUrl}"><img src="${thumbNail}"/></a>
+          <a href="${videoUrl}"><img src="${thumbNail}" width=100px/></a>
         </div>
-      </div>`
-    ;
-}
+      </div>`;
+  }
+    }
 
 function displayPlayList(){
 let apiKey = "AIzaSyD3LHry4BWoKZqBVT_TrjYdDF-iQbOAscI";
