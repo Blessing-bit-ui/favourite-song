@@ -1,15 +1,19 @@
 function displaySongs(response){
-    console.log(response.data)
-    
-    let musicTitleElement=document.querySelector("#music-title");
+    console.log(response.data) 
+    let playList=document.querySelector("#playLists")
     let musicTitle=response.data.items[1].snippet.title
-    musicTitleElement.innerHTML=musicTitle;
-    let videoElement=document.querySelector("#musicvideo-link")
     let videoID=response.data.items[1].snippet.resourceId.videoId
     let videoUrl=`https://www.youtube.com/watch?v=${videoID}`
     let thumbNail=response.data.items[1].snippet.thumbnails.standard.url
-    videoElement.innerHTML = 
-    `<a href=${videoUrl}> <img src="${thumbNail}"/></a>`;
+    playList.innerHTML = 
+      `<div class="playLists">
+        <div class="music-title">${musicTitle}
+        </div>
+        <div class="musicvideo-link" id="musicvideo-link">
+          <a href="${videoUrl}"><img src="${thumbNail}"/></a>
+        </div>
+      </div>`
+    ;
 }
 
 function displayPlayList(){
